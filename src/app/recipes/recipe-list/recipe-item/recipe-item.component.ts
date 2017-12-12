@@ -10,6 +10,7 @@ export class RecipeItemComponent implements OnInit {
   // tslint:disable-next-line:no-input-rename
   @Input() recipe: Recipe;
   //// @Output() selectedRecipe = new EventEmitter<Recipe>();
+  @Input() index: number;
 
   constructor() { }
 

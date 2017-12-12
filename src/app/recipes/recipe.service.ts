@@ -30,7 +30,7 @@ export class RecipeService {
       ];
 
     constructor(private sls: ShoppingListService) {
-        
+
     }
 
     getRecipes() {
@@ -39,5 +39,9 @@ export class RecipeService {
 
     addIngredientsToShoppingList(ingredients: Ingredient[]){
         this.sls.addIngredients(ingredients);
+    }
+
+    getRecipe(id: number) {
+        return this.recipes[id];
     }
 }
