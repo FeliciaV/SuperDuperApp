@@ -23,30 +23,26 @@ import { HttpModule } from '@angular/http';
 import { DataStorageService } from './shared/data-storage.service';
 import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth-guard.service';
+import { RecipesModule } from './recipes/recipes.module';
+import { SharedModule } from './shared/shared.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    RecipesComponent,
-    RecipeListComponent,
-    RecipeDetailComponent,
-    RecipeItemComponent,
     ShoppingListComponent,
     ShoppingEditComponent,
-    DropdownDirective,
     SignupComponent,
-    SigninComponent,
-    RecipeStartComponent,
-    RecipeEditComponent
+    SigninComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RecipesModule,
+    SharedModule
   ],
   providers: [ShoppingListService,
       RecipeService,
