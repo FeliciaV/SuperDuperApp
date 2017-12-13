@@ -22,6 +22,7 @@ import { RecipeService } from './recipes/recipe.service';
 import { HttpModule } from '@angular/http';
 import { DataStorageService } from './shared/data-storage.service';
 import { AuthService } from './auth/auth.service';
+import { AuthGuard } from './auth/auth-guard.service';
 
 
 @NgModule({
@@ -50,6 +51,7 @@ import { AuthService } from './auth/auth.service';
   providers: [ShoppingListService,
       RecipeService,
       AuthService,
+      AuthGuard,
       DataStorageService],
   bootstrap: [AppComponent]
 })
