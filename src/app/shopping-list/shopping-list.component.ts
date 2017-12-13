@@ -33,6 +33,10 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
   /*onIngredientAdded(newIngredient: Ingredient) {
     console.log('new ingredient: ' + newIngredient.amount + ' ' + newIngredient.name);
     // this.ingredients.push(newIngredient);
-    
+
   }*/
+
+  onEditItem(index: number) {
+    this.shoppingListService.startedEditing.next(index);
+  }
 }
