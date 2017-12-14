@@ -4,6 +4,8 @@ import { ShoppingListService } from '../shopping-list.service';
 import { NgForm } from '@angular/forms';
 import { Subscription } from 'rxjs/Subscription';
 import { OnDestroy } from '@angular/core/src/metadata/lifecycle_hooks';
+import { Store } from '@ngrx/store';
+import * as ShoppingListActions from '../store/shopping-list.actions';
 
 @Component({
   selector: 'app-shopping-edit',
@@ -20,7 +22,8 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
   // @ViewChild('amountInput') amountInputRef: ElementRef;
   // @ViewChild('nameInput') nameInputRef: ElementRef;
 
-  constructor(private slService: ShoppingListService) { }
+  constructor(private slService: ShoppingListService,
+    private store: Store<{shoppingList: {ingredients: Ingredient}}>) { }
 
   ngOnInit() {
     this.subscription = this.slService.startedEditing
@@ -56,7 +59,8 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
     if (this.editMode) {
       this.slService.updateIngredient(this.editedItemIndex, newIngr);
     } else {
-      this.slService.addIngredient(newIngr);
+      this.store.dispatch(new ShoppingListActions.AddIngredient(newIngr));
+      // this.slService.addIngredient(newIngr);
     }
 
     this.editMode = false;
